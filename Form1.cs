@@ -13,7 +13,7 @@ namespace Pong
     public partial class Form1 : Form
     {
         Rectangle player1 = new Rectangle(10, 170, 10, 60);
-        Rectangle player2 = new Rectangle(580, 170, 10, 60);
+        Rectangle player2 = new Rectangle(50, 170, 10, 60);
         Rectangle ball = new Rectangle(295, 195, 10, 10);
 
         int player1Score = 0;
@@ -30,6 +30,16 @@ namespace Pong
 
         SolidBrush blueBrush = new SolidBrush(Color.DodgerBlue);
         SolidBrush whiteBrush = new SolidBrush(Color.White);
+
+        //racquet ball additions
+        int playerTurn = 1;
+
+        bool aDown = false;
+        bool dDown = false;
+        bool leftArrowDown = false;
+        bool rightArrowDown = false;
+
+        Pen borderPen = new Pen(Color.White, 10);
 
         public Form1()
         {
@@ -135,16 +145,19 @@ namespace Pong
                 player1.Y = 170;
                 player2.Y = 170;
             }
+            ////commented out for racquet ball
             else if (ball.X > 600)
             {
-                player1Score++;
-                p1ScoreLabel.Text = $"{player1Score}";
+                //player1Score++;
+                //p1ScoreLabel.Text = $"{player1Score}";
 
-                ball.X = 295;
-                ball.Y = 195;
+                //ball.X = 295;
+                //ball.Y = 195;
 
                 player1.Y = 170;
                 player2.Y = 170;
+
+                ballXSpeed *= -1;
             }
 
             // check score and stop game if either player is at 3 
