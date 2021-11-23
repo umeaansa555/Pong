@@ -62,6 +62,19 @@ namespace Pong
                 case Keys.Down:
                     downArrowDown = true;
                     break;
+
+                case Keys.A:
+                    aDown = true;
+                    break;
+                case Keys.D:
+                    dDown = true;
+                    break;
+                case Keys.Left:
+                    leftArrowDown = true;
+                    break;
+                case Keys.Right:
+                    rightArrowDown = true;
+                    break;
             }
         }
 
@@ -100,6 +113,19 @@ namespace Pong
             {
                 player1.Y += playerSpeed;
             }
+            
+
+            ////in progress. right works, left has problems
+            if(aDown == true && player1.X > 0)
+            {
+                player1.X -= playerSpeed;
+            }
+
+            if (dDown == true && player1.X < this.Width - player1.Width)
+            {
+                player1.X += playerSpeed;
+            }
+
 
             //move player 2 
             if (upArrowDown == true && player2.Y > 0)
@@ -110,6 +136,17 @@ namespace Pong
             if (downArrowDown == true && player2.Y < this.Height - player2.Height)
             {
                 player2.Y += playerSpeed;
+            }
+
+
+            ////in progress, movement works but its buggy
+            if (leftArrowDown == true && player2.X > 0)
+            {
+                player2.X -= playerSpeed;
+            }
+            if (rightArrowDown == true && player2.X < this.Width - player2.Width)
+            {
+                player2.X += playerSpeed;
             }
 
             //check if ball hit top or bottom wall and change direction if it does 
